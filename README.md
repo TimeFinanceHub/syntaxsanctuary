@@ -12,7 +12,7 @@ Para hacer cumplir esta regla, he creado dos clases PHP distintas dentro de este
 
 Hemos separado la responsabilidad de crear el título principal de los subtítulos.
 
-### 1. `TituloH1` (Para el Título Principal)
+### 1. `Tituloh1` (Para el Título Principal)
 
 Esta clase está **diseñada exclusivamente** para generar títulos de nivel 1 (`<h1>`).
 
