@@ -1,19 +1,44 @@
 {
     "name": "timefinancehub/syntaxsanctuary",
-    "description": "timefinancehub project.",
+    "description": "Una descripción concisa de lo que hace tu librería.",
+    "keywords": ["php", "library", "paquete", "ramiro"],
     "type": "library",
     "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Ramiro\\Syntaxsanctuary\\": "src/"
-        }
-    },
+
     "authors": [
         {
             "name": "Ramiro G Glez",
-            "email": "mostlyphpsoftware@gmail.com"
+            "email": "mostlyphpsoftware@gmail.com",
+            "homepage": "https://tu-pagina-web.com",
+            "role": "Developer"
         }
     ],
+
     "minimum-stability": "dev",
-    "require": {}
+    "prefer-stable": true,
+
+    "require": {
+        "php": ">=8.1"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Rmo\\Syntaxsanctuary\\": "src/"
+        }
+    },
+
+    "autoload-dev": {
+        "psr-4": {
+            "Rmo\\Syntaxsanctuary\\Tests\\": "tests/"
+        }
+    },
+
+    "require-dev": {
+        "phpunit/phpunit": "^10.0",
+        "vlucas/phpdotenv": "^5.0"
+    },
+
+    "config": {
+        "sort-packages": true
+    }
 }
