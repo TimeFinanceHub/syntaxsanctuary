@@ -1,1 +1,1 @@
-{"version":2,"defects":[],"times":{"Rmo\\Syntaxsanctuary\\Tests\\CalculadoraTest::testLaSumaFuncionaCorrectamente":0.002,"Rmo\\Syntaxsanctuary\\Tests\\Tituloh1Test::testCrearh1":0}}
+{"version":2,"defects":{"Rmo\\Syntaxsanctuary\\Tests\\HTest::testCrearTitulo":8},"times":{"Rmo\\Syntaxsanctuary\\Tests\\CalculadoraTest::testLaSumaFuncionaCorrectamente":0.002,"Rmo\\Syntaxsanctuary\\Tests\\Tituloh1Test::testCrearh1":0,"Rmo\\Syntaxsanctuary\\Tests\\HTest::testCrearTitulo":0}}
