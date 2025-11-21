@@ -1,0 +1,19 @@
+{
+    "name": "ramiro/syntaxsanctuary",
+    "description": "timefinancehub project.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Ramiro\\Syntaxsanctuary\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ramiro G Glez",
+            "email": "mostlyphpsoftware@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
