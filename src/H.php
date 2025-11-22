@@ -3,7 +3,7 @@
 namespace Rmo\Syntaxsanctuary;
 
 class H {
-    public function __construct (private string $titulo, private string $numero) {}
+    public function __construct (private string $titulo, private string $numero = '') {}
     public function titulo (string $class = '',string $id = '',string $style = '') : string {
         $numero = $this -> numero;
         if ($numero !== "1" && $numero >= "2" && $numero <= "5") {
