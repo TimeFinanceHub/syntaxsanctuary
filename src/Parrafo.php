@@ -5,7 +5,7 @@ namespace Rmo\Syntaxsanctuary;
 class Parrafo {
     public function __construct (private string $parrafo = '') {
         if ($this->parrafo == '') {
-            return "Coloca entre los parentesis entre '' una cadena de caracteres(string) para definir el parrafo.";
+            echo "Coloca entre los parentesis entre '' una cadena de caracteres(string) para definir el parrafo.";
         }
     }
     public function parrafo (string $class = '',string $id = '',string $style = '') : string {

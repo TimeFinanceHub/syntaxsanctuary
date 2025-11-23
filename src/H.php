@@ -5,9 +5,9 @@ namespace Rmo\Syntaxsanctuary;
 class H {
     public function __construct (private string $titulo = '', private string $numero = '') {
         if ($this->titulo == '') {
-            return "Coloca entre los parentesis entre '' una cadena de caracteres(string) para definir el Titulo.";
+            echo "Coloca entre los parentesis entre '' una cadena de caracteres(string) para definir el Titulo.";
         } else if ($this->numero == '' || $this->numero > '6' || $this->numero < 2) {
-            return "Coloca un numero de tipo (string) despues del titulo separado por coma *new H('titulo','tama&nacute;o')*";
+            echo "Coloca un numero de tipo (string) despues del titulo separado por coma *new H('titulo','tama&nacute;o')*";
         }
     }
     public function titulo (string $class = '',string $id = '',string $style = '') : string {
