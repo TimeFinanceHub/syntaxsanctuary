@@ -8,6 +8,9 @@ class H {
             echo "Coloca entre los parentesis entre '' una cadena de caracteres(string) para definir el Titulo.";
         } else if ($this->numero == '' || $this->numero > '6' || $this->numero < 2) {
             echo "Coloca un numero de tipo (string) despues del titulo separado por coma *new H('titulo','tama&nacute;o')*";
+        } else {
+            $this->titulo = htmlspecialchars ($this->titulo);
+            $this->numero = htmlspecialchars ($this->numero);
         }
     }
     public function titulo (string $class = '',string $id = '',string $style = '') : string {

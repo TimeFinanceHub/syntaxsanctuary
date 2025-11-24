@@ -6,6 +6,8 @@ class Tituloh1 {
     public function __construct (private string $titulo = '') {
         if ($this->titulo == '') {
             echo "Coloca entre los parentesis entre '' una cadena de caracteres(string) para definir el Titulo.";
+        } else {
+            $this->titulo = htmlspecialchars ($this->titulo);
         }
     }
     public function titulo (string $class = '',string $id = '',string $style = '') : string {
