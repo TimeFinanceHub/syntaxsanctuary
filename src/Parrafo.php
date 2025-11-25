@@ -7,7 +7,7 @@ class Parrafo {
         if ($this->parrafo == '') {
             echo "Coloca entre los parentesis entre '' una cadena de caracteres(string) para definir el parrafo.";
         } else {
-            $this->parrafo = htmlspecialchars ($this->parrafo);
+            $this->parrafo = htmlspecialchars ($this->parrafo, ENT_QUOTES | ENT_HTML5, 'UTF-8', false);
         }
     }
     public function parrafo (string $class = '',string $id = '',string $style = '') : string {

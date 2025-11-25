@@ -9,8 +9,8 @@ class H {
         } else if ($this->numero == '' || $this->numero > '6' || $this->numero < 2) {
             echo "Coloca un numero de tipo (string) despues del titulo separado por coma *new H('titulo','tama&nacute;o')*";
         } else {
-            $this->titulo = htmlspecialchars ($this->titulo);
-            $this->numero = htmlspecialchars ($this->numero);
+            $this->titulo = htmlspecialchars ($this->titulo, ENT_QUOTES | ENT_HTML5, 'UTF-8', false);
+            $this->numero = htmlspecialchars ($this->numero, ENT_QUOTES | ENT_HTML5, 'UTF-8', false);
         }
     }
     public function titulo (string $class = '',string $id = '',string $style = '') : string {

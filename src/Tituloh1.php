@@ -7,7 +7,7 @@ class Tituloh1 {
         if ($this->titulo == '') {
             echo "Coloca entre los parentesis entre '' una cadena de caracteres(string) para definir el Titulo.";
         } else {
-            $this->titulo = htmlspecialchars ($this->titulo);
+            $this->titulo = htmlspecialchars ($this->titulo, ENT_QUOTES | ENT_HTML5, 'UTF-8', false);
         }
     }
     public function titulo (string $class = '',string $id = '',string $style = '') : string {
