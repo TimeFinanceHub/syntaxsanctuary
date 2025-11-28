@@ -21,9 +21,7 @@ class ExamplesMenu
             '03-composicion.php' => 'Element Composition',
             '04-pagina-completa.php' => 'Full Page using Page Class',
             'tutorial-interactivo/index.php' => 'Interactive Tutorial',
-            'fix_old_index.php' => 'Fix for Old Index.php Usage',
-            'user_provided_index_fix.php' => 'User-Provided Index.php Fix',
-            'user_root_index_fix.php' => 'User Root Index.php Fix (Final)',
+
         ];
 
         $menuHtml = '<nav class="examples-nav"><ul class="examples-list">';
