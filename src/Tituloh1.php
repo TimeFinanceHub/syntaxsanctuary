@@ -2,25 +2,18 @@
 
 namespace Rmo\Syntaxsanctuary;
 
-class Tituloh1 {
-    public function __construct (private string $titulo = '') {
-        if ($this->titulo == '') {
-            echo "Coloca entre los parentesis entre '' una cadena de caracteres(string) para definir el Titulo.";
-        } else {
-            $this->titulo = htmlspecialchars ($this->titulo, ENT_QUOTES | ENT_HTML5, 'UTF-8', false);
-        }
+require_once 'Html.php';
+
+class Tituloh1 extends Html
+{
+    public function __construct(string $titulo = '')
+    {
+        parent::__construct($titulo);
+        $this->content = $titulo;
     }
-    public function titulo (string $class = '',string $id = '',string $style = '') : string {
-        if ($class != '' && $id != '' && $style == '') {
-            return "<h1 class='".$class."' id='".$id."'>".$this->titulo."</h1>";
-        } else if ($class != '' && $id == '' && $style == '') {
-            return "<h1 class='".$class."'>".$this->titulo."</h1>";
-        } else if ($class == '' && $id != '' && $style == '') {
-            return "<h1 id='".$id."'>".$this->titulo."</h1>";
-        } else if ($class == '' && $id == '' && $style != '') {
-            return "<h1 style='".$style."'>".$this->titulo."</h1>";
-        } else {
-            return "<h1>".$this->titulo."</h1>";
-        }
+
+    public function titulo(string $class = '', string $id = '', string $style = ''): string
+    {
+        return $this->render('h1', $class, $id, $style);
     }
 }

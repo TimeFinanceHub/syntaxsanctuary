@@ -2,25 +2,18 @@
 
 namespace Rmo\Syntaxsanctuary;
 
-class Parrafo {
-    public function __construct (private string $parrafo = '') {
-        if ($this->parrafo == '') {
-            echo "Coloca entre los parentesis entre '' una cadena de caracteres(string) para definir el parrafo.";
-        } else {
-            $this->parrafo = htmlspecialchars ($this->parrafo, ENT_QUOTES | ENT_HTML5, 'UTF-8', false);
-        }
+require_once 'Html.php';
+
+class Parrafo extends Html
+{
+    public function __construct(string $parrafo = '')
+    {
+        parent::__construct($parrafo);
+        $this->content = $parrafo;
     }
-    public function parrafo (string $class = '',string $id = '',string $style = '') : string {
-        if ($class != '' && $id != '' && $style == '') {
-            return "<p class='".$class."' id='".$id."'>".$this->parrafo."</p>";
-        } else if ($class != '' && $id == '' && $style == '') {
-            return "<p class='".$class."'>".$this->parrafo."</p>";
-        } else if ($class == '' && $id != '' && $style == '') {
-            return "<p id='".$id."'>".$this->parrafo."</p>";
-        } else if ($class == '' && $id == '' && $style != '') {
-            return "<p style='".$style."'>".$this->parrafo."</p>";
-        } else {
-            return "<p>".$this->parrafo."</p>";
-        }
+
+    public function parrafo(string $class = '', string $id = '', string $style = ''): string
+    {
+        return $this->render('p', $class, $id, $style);
     }
 }

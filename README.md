@@ -1,29 +1,43 @@
-# syntaxsanctuary
+# Project Overview
 
-# 🏷️ Gestión de Títulos HTML: `<h1>` Único por Página
+This project is a simple PHP library for generating basic HTML elements. It consists of a collection of classes, each responsible for creating a specific HTML tag. The library appears to be intended for direct inclusion in PHP projects.
 
-Es una **práctica recomendada (SEO y Accesibilidad)** limitar tus páginas web a **un solo título principal (`<h1>`)** por documento. Esto asegura una estructura semántica clara, ayudando a los motores de búsqueda y a las tecnologías de asistencia a entender el tema central de la página.
+The main technologies used are:
+- PHP
 
-Para hacer cumplir esta regla, he creado dos clases PHP distintas dentro de este paquete:
+## Files
 
----
+- `Calculadora.php`: A simple class with a `sumar` method to add two numbers.
+- `H.php`: A class to generate HTML headings (`<h2>` to `<h6>`).
+- `Html.php`: A base class for HTML elements.
+- `Parrafo.php`: A class to generate HTML paragraph tags (`<p>`).
+- `Tituloh1.php`: A class to generate HTML `<h1>` heading tags.
 
-## 🏗️ Clases para la Creación de Títulos
+## How to use
 
-Hemos separado la responsabilidad de crear el título principal de los subtítulos.
+Here is an example of how to use the classes in this library:
 
-### 1. `Tituloh1` (Para el Título Principal)
+```php
+<?php
+require_once 'path/to/your/library/Tituloh1.php';
+require_once 'path/to/your/library/Parrafo.php';
 
-Esta clase está **diseñada exclusivamente** para generar títulos de nivel 1 (`<h1>`).
+use Rmo\\Syntaxsanctuary\\Tituloh1;
+use Rmo\\Syntaxsanctuary\\Parrafo;
 
-* **Propósito:** Garantizar que solo exista un `<h1>` principal en el *output* de la página al usar esta clase.
+$titulo = new Tituloh1('My First Heading');
+echo $titulo->titulo();
 
-### 2. `H` (Para los Subtítulos)
+$parrafo = new Parrafo('This is a paragraph.');
+echo $parrafo->parrafo();
+```
 
-Esta clase maneja todos los títulos secundarios, desde el nivel 2 hasta el 6.
+## Development Conventions
 
-* **Propósito:** Permite crear `<h2>`, `<h3>`, `<h4>`, `<h5>`, y `<h6>`, asegurando que mantienes una jerarquía de contenido adecuada **sin introducir accidentalmente** un segundo `<h1>`.
+- The code is organized into classes within the `Rmo\Syntaxsanctuary` namespace.
+- The classes use `htmlspecialchars` to prevent XSS attacks.
+- The project uses `phpunit` for testing. To run the tests, execute the following command:
 
----
-
-De esta manera, facilitamos a los desarrolladores la creación de contenido **estructuralmente correcto**, evitando tener más de un título principal (`<h1>`) por página.
+```bash
+./vendor/bin/phpunit tests/
+```

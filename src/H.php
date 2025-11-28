@@ -2,33 +2,31 @@
 
 namespace Rmo\Syntaxsanctuary;
 
-class H {
-    public function __construct (private string $titulo = '', private string $numero = '') {
-        if ($this->titulo == '') {
-            echo "Coloca entre los parentesis entre '' una cadena de caracteres(string) para definir el Titulo.";
-        } else if ($this->numero == '' || $this->numero > '6' || $this->numero < 2) {
-            echo "Coloca un numero de tipo (string) despues del titulo separado por coma *new H('titulo','tama&nacute;o')*";
+require_once 'Html.php';
+
+class H extends Html
+{
+    private string $numero;
+
+    public function __construct(string $titulo = '', string $numero = '')
+    {
+        parent::__construct($titulo);
+        $this->content = $titulo;
+
+        if ($numero == '' || $numero > '6' || $numero < 2) {
+            echo "Coloca un numero de tipo (string) despues del titulo separado por coma *new H('titulo','tamaño')*";
+            $this->numero = ''; // Set to invalid
         } else {
-            $this->titulo = htmlspecialchars ($this->titulo, ENT_QUOTES | ENT_HTML5, 'UTF-8', false);
-            $this->numero = htmlspecialchars ($this->numero, ENT_QUOTES | ENT_HTML5, 'UTF-8', false);
+            $this->numero = htmlspecialchars($numero, ENT_QUOTES | ENT_HTML5, 'UTF-8', false);
         }
     }
-    public function titulo (string $class = '',string $id = '',string $style = '') : string {
-        $numero = $this -> numero;
-        if ($numero !== "1" && $numero >= "2" && $numero <= "5") {
-            if ($class != '' && $id != '' && $style == '') {
-                return "<h$numero class='".$class."' id='".$id."'>".$this->titulo."</h$numero>";
-            } else if ($class != '' && $id == '' && $style == '') {
-                return "<h$numero class='".$class."'>".$this->titulo."</h$numero>";
-            } else if ($class == '' && $id != '' && $style == '') {
-                return "<h$numero id='".$id."'>".$this->titulo."</h$numero>";
-            } else if ($class == '' && $id == '' && $style != '') {
-                return "<h$numero style='".$style."'>".$this->titulo."</h$numero>";
-            } else {
-                return "<h$numero>".$this->titulo."</h$numero>";
-            }
-        } else {
+
+    public function titulo(string $class = '', string $id = '', string $style = ''): string
+    {
+        if (empty($this->numero)) {
             return "titulo no valido.";
         }
+        $tag = 'h' . $this->numero;
+        return $this->render($tag, $class, $id, $style);
     }
 }
