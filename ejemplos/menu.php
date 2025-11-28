@@ -29,7 +29,11 @@ class ExamplesMenu
         $menuHtml = '<nav class="examples-nav"><ul class="examples-list">';
 
         foreach ($examples as $file => $displayName) {
-            $url = $this->baseUrl . $file;
+            if ($file === 'tutorial-interactivo/index.php') {
+                $url = 'https://timefinancehub.com/syntaxsanctuary/ejemplos/ejemplos/tutorial-interativo/';
+            } else {
+                $url = $this->baseUrl . $file;
+            }
             $menuHtml .= '<li><a href="' . htmlspecialchars($url) . '">' . htmlspecialchars($displayName) . '</a></li>';
         }
 
