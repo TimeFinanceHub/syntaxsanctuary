@@ -4,16 +4,19 @@ namespace Rmo\Syntaxsanctuary;
 
 require_once 'Html.php';
 
-class Tituloh1 extends Html
+class Tituloh1
 {
-    public function __construct(string $titulo = '')
+    private Html $html;
+    private string $content;
+
+    public function __construct(string $content, bool $raw = false)
     {
-        parent::__construct($titulo);
-        $this->content = $titulo;
+        $this->html = new Html();
+        $this->content = $raw ? $content : htmlspecialchars($content, ENT_QUOTES | ENT_HTML5, 'UTF-8', false);
     }
 
-    public function titulo(string $class = '', string $id = '', string $style = ''): string
+    public function render(array $attributes = []): string
     {
-        return $this->render('h1', $class, $id, $style);
+        return $this->html->createElement('h1', $attributes, $this->content);
     }
 }

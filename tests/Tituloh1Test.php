@@ -13,7 +13,7 @@ class Tituloh1Test extends TestCase
         $titulo = new Tituloh1("hello world");
         
         // 2. Realizamos la prueba
-        $resultado = $titulo->titulo();
+        $resultado = $titulo->render();
 
         // 3. Afirmamos que el resultado es el esperado
         $this->assertEquals("<h1>hello world</h1>", $resultado);
@@ -24,10 +24,10 @@ class Tituloh1Test extends TestCase
         $titulo = new Tituloh1("hello world");
         
         // 2. Realizamos la prueba
-        $resultado = $titulo->titulo(class:"titulo");
+        $resultado = $titulo->render(['class' => 'titulo']);
 
         // 3. Afirmamos que el resultado es el esperado
-        $this->assertEquals("<h1 class='titulo'>hello world</h1>", $resultado);
+        $this->assertEquals('<h1 class="titulo">hello world</h1>', $resultado);
 
         //#######################################PRUEBA 3
         
@@ -35,10 +35,10 @@ class Tituloh1Test extends TestCase
         $titulo = new Tituloh1("hello world");
         
         // 2. Realizamos la prueba
-        $resultado = $titulo->titulo(id:"titulo");
+        $resultado = $titulo->render(['id' => 'titulo']);
 
         // 3. Afirmamos que el resultado es el esperado
-        $this->assertEquals("<h1 id='titulo'>hello world</h1>", $resultado);
+        $this->assertEquals('<h1 id="titulo">hello world</h1>', $resultado);
 
         //#######################################PRUEBA 4
         
@@ -46,9 +46,9 @@ class Tituloh1Test extends TestCase
         $titulo = new Tituloh1("hello world");
         
         // 2. Realizamos la prueba
-        $resultado = $titulo->titulo(style:"color:green;");
+        $resultado = $titulo->render(['style' => 'color:green;']);
 
         // 3. Afirmamos que el resultado es el esperado
-        $this->assertEquals("<h1 style='color:green;'>hello world</h1>", $resultado);
+        $this->assertEquals('<h1 style="color:green;">hello world</h1>', $resultado);
     }
 }

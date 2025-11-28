@@ -4,29 +4,19 @@ namespace Rmo\Syntaxsanctuary;
 
 class Html
 {
-    protected string $content;
+    private array $selfClosingTags = ['br', 'hr', 'img', 'input', 'link', 'meta'];
 
-    public function __construct(string $content = '')
+    public function createElement(string $tag, array $attributes = [], string $content = ''): string
     {
-        if ($content == '') {
-            echo "El contenido no puede estar vacío.";
-        } else {
-            $this->content = htmlspecialchars($content, ENT_QUOTES | ENT_HTML5, 'UTF-8', false);
+        $attrs = '';
+        foreach ($attributes as $key => $value) {
+            $attrs .= " " . $key . '="' . htmlspecialchars($value, ENT_QUOTES | ENT_HTML5, 'UTF-8', false) . '"';
         }
-    }
 
-    public function render(string $tag, string $class = '', string $id = '', string $style = ''): string
-    {
-        $attributes = '';
-        if ($class != '') {
-            $attributes .= " class='" . $class . "'";
+        if (in_array($tag, $this->selfClosingTags)) {
+            return "<" . $tag . $attrs . " />";
         }
-        if ($id != '') {
-            $attributes .= " id='" . $id . "'";
-        }
-        if ($style != '') {
-            $attributes .= " style='" . $style . "'";
-        }
-        return "<" . $tag . $attributes . ">" . $this->content . "</" . $tag . ">";
+
+        return "<" . $tag . $attrs . ">" . $content . "</" . $tag . ">";
     }
 }

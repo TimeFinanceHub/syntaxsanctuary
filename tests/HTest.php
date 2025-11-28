@@ -10,10 +10,10 @@ class HTest extends TestCase
     public function testCrearTitulo(): void
     {
         // 1. Instanciamos la clase de producción (autoloading en acción)
-        $titulo = new H("hello world","2");
+        $titulo = new H("hello world", "2");
         
         // 2. Realizamos la prueba
-        $resultado = $titulo->titulo();
+        $resultado = $titulo->render();
 
         // 3. Afirmamos que el resultado es el esperado
         $this->assertEquals("<h2>hello world</h2>", $resultado);
@@ -21,34 +21,34 @@ class HTest extends TestCase
         //#######################################PRUEBA 2
 
         // 1. Instanciamos la clase de producción (autoloading en acción)
-        $titulo = new H("hello world","3");
+        $titulo = new H("hello world", "3");
         
         // 2. Realizamos la prueba
-        $resultado = $titulo->titulo(class:"titulo");
+        $resultado = $titulo->render(['class' => 'titulo']);
 
         // 3. Afirmamos que el resultado es el esperado
-        $this->assertEquals("<h3 class='titulo'>hello world</h3>", $resultado);
+        $this->assertEquals('<h3 class="titulo">hello world</h3>', $resultado);
 
         //#######################################PRUEBA 3
         
         // 1. Instanciamos la clase de producción (autoloading en acción)
-        $titulo = new H("hello world","4");
+        $titulo = new H("hello world", "4");
         
         // 2. Realizamos la prueba
-        $resultado = $titulo->titulo(id:"titulo");
+        $resultado = $titulo->render(['id' => 'titulo']);
 
         // 3. Afirmamos que el resultado es el esperado
-        $this->assertEquals("<h4 id='titulo'>hello world</h4>", $resultado);
+        $this->assertEquals('<h4 id="titulo">hello world</h4>', $resultado);
 
         //#######################################PRUEBA 4
         
         // 1. Instanciamos la clase de producción (autoloading en acción)
-        $titulo = new H("hello world","5");
+        $titulo = new H("hello world", "5");
         
         // 2. Realizamos la prueba
-        $resultado = $titulo->titulo(style:"color:green;");
+        $resultado = $titulo->render(['style' => 'color:green;']);
 
         // 3. Afirmamos que el resultado es el esperado
-        $this->assertEquals("<h5 style='color:green;'>hello world</h5>", $resultado);
+        $this->assertEquals('<h5 style="color:green;">hello world</h5>', $resultado);
     }
 }

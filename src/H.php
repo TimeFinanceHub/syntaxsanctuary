@@ -4,29 +4,31 @@ namespace Rmo\Syntaxsanctuary;
 
 require_once 'Html.php';
 
-class H extends Html
+class H
 {
+    private Html $html;
+    private string $content;
     private string $numero;
 
-    public function __construct(string $titulo = '', string $numero = '')
+    public function __construct(string $content, string $numero, bool $raw = false)
     {
-        parent::__construct($titulo);
-        $this->content = $titulo;
+        $this->html = new Html();
+        $this->content = $raw ? $content : htmlspecialchars($content, ENT_QUOTES | ENT_HTML5, 'UTF-8', false);
 
-        if ($numero == '' || $numero > '6' || $numero < 2) {
-            echo "Coloca un numero de tipo (string) despues del titulo separado por coma *new H('titulo','tamaño')*";
-            $this->numero = ''; // Set to invalid
+        if ($numero > '6' || $numero < 2) {
+            echo "Numero de titulo no valido";
+            $this->numero = '';
         } else {
             $this->numero = htmlspecialchars($numero, ENT_QUOTES | ENT_HTML5, 'UTF-8', false);
         }
     }
 
-    public function titulo(string $class = '', string $id = '', string $style = ''): string
+    public function render(array $attributes = []): string
     {
-        if (empty($this->numero)) {
-            return "titulo no valido.";
+        if(empty($this->numero)) {
+            return "Titulo no valido";
         }
         $tag = 'h' . $this->numero;
-        return $this->render($tag, $class, $id, $style);
+        return $this->html->createElement($tag, $attributes, $this->content);
     }
 }

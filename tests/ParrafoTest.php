@@ -13,7 +13,7 @@ class ParrafoTest extends TestCase
         $parrafo = new Parrafo("Bienvenido/a A TFH|SyntaxSanctuary");
         
         // 2. Realizamos la prueba
-        $resultado = $parrafo->parrafo();
+        $resultado = $parrafo->render();
 
         // 3. Afirmamos que el resultado es el esperado
         $this->assertEquals("<p>Bienvenido/a A TFH|SyntaxSanctuary</p>", $resultado);
@@ -24,10 +24,10 @@ class ParrafoTest extends TestCase
         $parrafo = new Parrafo("Bienvenido/a A TFH|SyntaxSanctuary");
         
         // 2. Realizamos la prueba
-        $resultado = $parrafo->parrafo(class:"parrafo");
+        $resultado = $parrafo->render(['class' => 'parrafo']);
 
         // 3. Afirmamos que el resultado es el esperado
-        $this->assertEquals("<p class='parrafo'>Bienvenido/a A TFH|SyntaxSanctuary</p>", $resultado);
+        $this->assertEquals('<p class="parrafo">Bienvenido/a A TFH|SyntaxSanctuary</p>', $resultado);
 
         //#######################################PRUEBA 3
         
@@ -35,10 +35,10 @@ class ParrafoTest extends TestCase
         $parrafo = new Parrafo("Bienvenido/a A TFH|SyntaxSanctuary");
         
         // 2. Realizamos la prueba
-        $resultado = $parrafo->parrafo(id:"parrafo");
+        $resultado = $parrafo->render(['id' => 'parrafo']);
 
         // 3. Afirmamos que el resultado es el esperado
-        $this->assertEquals("<p id='parrafo'>Bienvenido/a A TFH|SyntaxSanctuary</p>", $resultado);
+        $this->assertEquals('<p id="parrafo">Bienvenido/a A TFH|SyntaxSanctuary</p>', $resultado);
 
         //#######################################PRUEBA 4
         
@@ -46,9 +46,9 @@ class ParrafoTest extends TestCase
         $parrafo = new Parrafo("Bienvenido/a A TFH|SyntaxSanctuary");
         
         // 2. Realizamos la prueba
-        $resultado = $parrafo->parrafo(style:"color:green;");
+        $resultado = $parrafo->render(['style' => 'color:green;']);
 
         // 3. Afirmamos que el resultado es el esperado
-        $this->assertEquals("<p style='color:green;'>Bienvenido/a A TFH|SyntaxSanctuary</p>", $resultado);
+        $this->assertEquals('<p style="color:green;">Bienvenido/a A TFH|SyntaxSanctuary</p>', $resultado);
     }
 }

@@ -4,16 +4,19 @@ namespace Rmo\Syntaxsanctuary;
 
 require_once 'Html.php';
 
-class Parrafo extends Html
+class Parrafo
 {
-    public function __construct(string $parrafo = '')
+    private Html $html;
+    private string $content;
+
+    public function __construct(string $content, bool $raw = false)
     {
-        parent::__construct($parrafo);
-        $this->content = $parrafo;
+        $this->html = new Html();
+        $this->content = $raw ? $content : htmlspecialchars($content, ENT_QUOTES | ENT_HTML5, 'UTF-8', false);
     }
 
-    public function parrafo(string $class = '', string $id = '', string $style = ''): string
+    public function render(array $attributes = []): string
     {
-        return $this->render('p', $class, $id, $style);
+        return $this->html->createElement('p', $attributes, $this->content);
     }
 }
