@@ -17,6 +17,10 @@ class Header
 
     public function render(): string
     {
+        $examplesLink = $this->html->createElement('a', ['href' => 'ejemplos/index.php', 'class' => 'nav-link'], 'View Examples');
+        $navContent = $this->html->createElement('div', ['class' => 'container'], $examplesLink);
+        $nav = $this->html->createElement('nav', ['class' => 'main-nav'], $navContent);
+
         $span1 = $this->html->createElement('span', ['class' => 'nombre-completo'], 'La Infraestructura de Internet');
         $span2 = $this->html->createElement('span', ['class' => 'nombre-abreviado'], 'Internet');
         $h1 = $this->html->createElement('h1', [], $span1 . $span2);
@@ -30,6 +34,6 @@ class Header
 
         $section = $this->html->createElement('section', ['class' => 'seccion-heroe'], $div);
 
-        return $this->html->createElement('header', [], $section);
+        return $nav . $this->html->createElement('header', [], $section);
     }
 }

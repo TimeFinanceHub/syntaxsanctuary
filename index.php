@@ -160,6 +160,30 @@ $css = <<<CSS
             font-weight: bold;
         }
 
+        /* NEW NAVIGATION STYLES */
+        .main-nav {
+            background-color: #07090c;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--color-primary);
+            text-align: center;
+        }
+        .main-nav .container {
+            padding: 0;
+        }
+        .main-nav .nav-link {
+            color: var(--color-text-light);
+            text-decoration: none;
+            font-family: var(--font-display);
+            font-size: 1.1em;
+            padding: 5px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .main-nav .nav-link:hover {
+            background-color: var(--color-primary);
+            color: var(--color-bg-dark);
+        }
+
         /* =================================================== */
         /* PIE DE PÁGINA (FOOTER) */
         /* =================================================== */
