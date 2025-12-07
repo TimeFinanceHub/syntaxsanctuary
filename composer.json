@@ -1,8 +1,8 @@
 {
     "name": "timefinancehub/syntaxsanctuary",
-    "description": "Una descripción concisa de lo que hace tu librería.",
-    "keywords": ["php", "library", "paquete", "ramiro"],
-    "type": "library",
+    "description": "Una herramienta para generar programáticamente elementos HTML y estructuras de páginas web complejas con PHP.",
+    "keywords": ["php", "html", "generator", "project", "ramiro"],
+    "type": "project",
     "license": "MIT",
 
     "authors": [

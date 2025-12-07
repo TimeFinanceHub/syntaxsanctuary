@@ -1,6 +1,16 @@
 # SyntaxSanctuary
 
-SyntaxSanctuary is a PHP library for programmatically generating HTML elements. It provides a collection of classes that represent HTML tags, allowing you to build complex HTML structures in an object-oriented way.
+SyntaxSanctuary is a PHP project for programmatically generating HTML elements. It provides a collection of classes that represent HTML tags, allowing you to build complex HTML structures in an object-oriented way.
+
+## Installation
+
+To create a new project using SyntaxSanctuary, run the following Composer command:
+
+```bash
+composer create-project timefinancehub/syntaxsanctuary your-project-name
+```
+
+This is the recommended way of installation as SyntaxSanctuary is a complete project, not a library.
 
 ## Features
 
